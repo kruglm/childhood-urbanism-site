@@ -87,6 +87,16 @@ img { max-width: 100%; display: block; }
   border-radius: 999px;
   box-shadow: 0 12px 35px rgba(30, 24, 30, .08);
   backdrop-filter: blur(18px);
+  font-family: var(--sans);
+}
+
+.topbar,
+.logo,
+.logo__text,
+.nav,
+.nav a,
+.nav-toggle {
+  font-family: var(--sans);
 }
 
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; }
@@ -100,7 +110,8 @@ img { max-width: 100%; display: block; }
   border-radius: 14px;
   background: var(--pink);
   transform: rotate(-4deg);
-  font-family: var(--display);
+  font-family: var(--sans);
+  font-weight: 900;
   text-transform: uppercase;
 }
 
@@ -234,7 +245,7 @@ p {
 
 .word { display: block; }
 .word--pink { color: var(--ink); text-shadow: .07em .02em 0 var(--pink); }
-.word--green { color: var(--blue-ink); text-shadow: .06em .02em 0 var(--green); }
+.word--green { color: var(--ink); text-shadow: .06em .02em 0 var(--green); }
 
 .word--serif {
   margin-top: 12px;
@@ -249,6 +260,8 @@ p {
   max-width: 700px;
   margin: 0 auto 26px;
   font-size: 19px;
+  font-family: var(--sans);
+  font-weight: 500;
 }
 
 .hero__actions {
@@ -551,10 +564,18 @@ textarea:focus {
   height: 124px;
   border-radius: 22px;
   border: 1px solid var(--line);
+  overflow: hidden;
   background:
     radial-gradient(circle at 25% 40%, rgba(255,255,255,.9) 0 8px, transparent 9px),
     radial-gradient(circle at 65% 30%, rgba(255,255,255,.8) 0 12px, transparent 13px),
     linear-gradient(135deg, var(--accent, var(--pink)), rgba(255,255,255,.7));
+}
+
+.org-card__photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .org-card__bottom {

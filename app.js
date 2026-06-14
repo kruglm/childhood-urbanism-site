@@ -4,6 +4,7 @@ const industry = [
     category: "Архитектурное бюро",
     specialization: ["детские площадки", "общественные пространства"],
     site: "https://afa-group.ru/?ysclid=mqdq604a1256782844",
+    photo : "assets/img/99941ac78d0278d_1920x0.jpg",
     accent: "#ffe0eb"
   },
   {
@@ -11,6 +12,7 @@ const industry = [
     category: "Архитектурное бюро",
     specialization: ["игровые пространства", "детская среда"],
     site: "https://chekharda.com/ru/?ysclid=mqdq71kkx6238992381",
+    photo : "assets/img/5_Druzhba_600.jpg",
     accent: "#cdeef1"
   },
   {
@@ -18,6 +20,7 @@ const industry = [
     category: "Бюро общественных пространств",
     specialization: ["публичные пространства", "соучастие"],
     site: "https://burodruzhba.com/?ysclid=mqdq8lu2yw73354101",
+    photo : "assets/img/DSC09079-result.jpg",
     accent: "#e2f0c1"
   }
 ];

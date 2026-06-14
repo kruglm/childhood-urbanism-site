@@ -2,56 +2,30 @@ const industry = [
   {
     title: "АФА",
     category: "Архитектурное бюро",
-    description: "Бюро, которое можно включить в каталог как пример команды, работающей с детскими и общественными пространствами.",
     specialization: ["детские площадки", "общественные пространства"],
-    projects: "реализованные проекты и фотографии добавляются в карточку",
     site: "#",
     accent: "#ffe0eb"
   },
   {
     title: "Чехарда",
     category: "Архитектурное бюро",
-    description: "Команда для раздела архитектурных бюро, специализирующихся на игровых пространствах и детской инфраструктуре.",
     specialization: ["игровые пространства", "детская среда"],
-    projects: "карточку можно расширить галереей кейсов",
     site: "#",
     accent: "#cdeef1"
   },
   {
     title: "Дружба",
     category: "Бюро общественных пространств",
-    description: "Бюро общественных пространств, которое среди прочего может работать с детскими сценариями и городской средой.",
     specialization: ["публичные пространства", "соучастие"],
-    projects: "добавить список проектов, город и год",
     site: "#",
     accent: "#e2f0c1"
   },
   {
     title: "Мегабудка",
     category: "Производитель оборудования",
-    description: "Производители игрового оборудования и объектов для площадок: важная часть экосистемы детской урбанистики.",
     specialization: ["оборудование", "игровые объекты"],
-    projects: "добавить фотографии объектов и контакты",
     site: "#",
     accent: "#ffe08a"
-  },
-  {
-    title: "Бюро детской среды",
-    category: "Архитектурное бюро",
-    description: "Шаблонная карточка для будущих участников каталога: описание, специализация, сайт, контакты, проекты.",
-    specialization: ["исследования", "проектирование"],
-    projects: "можно заменить на реальную организацию",
-    site: "#",
-    accent: "#ffd6c9"
-  },
-  {
-    title: "Лаборатория игровых практик",
-    category: "Исследовательская группа",
-    description: "Пример карточки для исследователей, которые изучают игру, развитие, сценарии активности и городские пространства.",
-    specialization: ["исследования", "методики"],
-    projects: "добавить публикации и PDF",
-    site: "#",
-    accent: "#d9d6ff"
   }
 ];
 
@@ -61,28 +35,32 @@ const education = [
     type: "Архитектура для детей",
     age: "дети и подростки",
     format: "мастерские, занятия, проектные практики",
-    description: "Карточка образовательной инициативы: описание, возраст участников, формат и ссылка."
+    description: "Образовательная инициатива в области архитектуры, города и пространственного мышления.",
+    site: "#"
   },
   {
     title: "Детские архитектурные школы",
     type: "Архитектурные школы",
     age: "7–17 лет",
     format: "курсы и студии",
-    description: "Раздел для школ, кружков и студий, которые объясняют детям архитектуру и город."
+    description: "Школы, кружки и студии, которые знакомят детей с архитектурой, макетированием и городской средой.",
+    site: "#"
   },
   {
     title: "Урбанистика для подростков",
     type: "Урбанистика",
     age: "12–18 лет",
     format: "летние школы, воркшопы, прогулки",
-    description: "Программы, где подростки исследуют район, собирают сценарии и предлагают изменения."
+    description: "Программы, где подростки исследуют район, собирают сценарии и предлагают изменения городской среды.",
+    site: "#"
   },
   {
     title: "Профориентация",
     type: "Профориентация",
     age: "старшие школьники",
     format: "кружки, интенсивы, программы вузов",
-    description: "Навигация для тех, кто хочет связать учебу с архитектурой, городом и исследованиями среды."
+    description: "Навигация для тех, кто хочет связать учебу с архитектурой, городскими исследованиями и проектированием.",
+    site: "#"
   }
 ];
 
@@ -129,7 +107,7 @@ const knowledge = [
   },
   {
     title: "Терапевтические площадки",
-    text: "Therapeutic playgrounds можно оформить отдельным блоком: среда как поддержка реабилитации, восстановления и эмоциональной регуляции.",
+    text: "Therapeutic playgrounds рассматривают игровую среду как поддержку реабилитации, восстановления и эмоциональной регуляции.",
     items: [
       ["Терапевтические сценарии", "сенсорные, двигательные, социальные и спокойные практики"],
       ["Методические рекомендации", "как связать дизайн, педагогов, врачей и семьи"]
@@ -151,25 +129,22 @@ function renderFilters() {
 
 function renderIndustry() {
   const query = searchInput.value.trim().toLowerCase();
+
   const cards = industry.filter(item => {
     const matchesCategory = currentCategory === "Все" || item.category === currentCategory;
-    const haystack = [item.title, item.category, item.description, item.specialization.join(" ")].join(" ").toLowerCase();
+    const haystack = [item.title, item.category, item.specialization.join(" ")].join(" ").toLowerCase();
     return matchesCategory && haystack.includes(query);
   });
+
   grid.innerHTML = cards.map(item => `
     <article class="org-card reveal is-visible" style="--accent:${item.accent}">
       <div class="org-card__photo" aria-hidden="true"></div>
       <div>
         <span class="sticker sticker--pink">${item.category}</span>
         <h3>${item.title}</h3>
-        <p>${item.description}</p>
-      </div>
-      <div class="org-card__meta">
-        ${item.specialization.map(tag => `<span class="tag">${tag}</span>`).join("")}
       </div>
       <div class="org-card__bottom">
-        <span>${item.projects}</span>
-        <a class="link" href="${item.site}">сайт</a>
+        <a class="link" href="${item.site}" target="_blank" rel="noopener">сайт ↗</a>
       </div>
     </article>
   `).join("") || `<p>Ничего не найдено. Попробуй другой запрос.</p>`;
@@ -185,7 +160,7 @@ function renderEducation() {
       </div>
       <p>${item.description}</p>
       <p><b>Формат:</b> ${item.format}</p>
-      <a class="link" href="#">добавить ссылку</a>
+      <a class="link" href="${item.site}" target="_blank" rel="noopener">сайт ↗</a>
     </article>
   `).join("");
 }
@@ -193,10 +168,13 @@ function renderEducation() {
 function renderKnowledge(activeIndex = 0) {
   const tabs = document.querySelector("#knowledgeTabs");
   const content = document.querySelector("#knowledgeContent");
+
   tabs.innerHTML = knowledge.map((item, index) => `
     <button class="knowledge-tab ${index === activeIndex ? "is-active" : ""}" data-index="${index}">${item.title}</button>
   `).join("");
+
   const item = knowledge[activeIndex];
+
   content.innerHTML = `
     <span class="sticker sticker--yellow">тема</span>
     <h3>${item.title}</h3>
@@ -213,17 +191,20 @@ function setupReveal() {
       if (entry.isIntersecting) entry.target.classList.add("is-visible");
     });
   }, { threshold: 0.16 });
+
   document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 }
 
 function setupNav() {
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".nav");
+
   toggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", isOpen.toString());
     toggle.textContent = isOpen ? "×" : "☰";
   });
+
   nav.addEventListener("click", event => {
     if (event.target.tagName === "A") {
       nav.classList.remove("is-open");
@@ -233,20 +214,14 @@ function setupNav() {
   });
 }
 
-function setupMap() {
-  const tooltip = document.querySelector("#mapTooltip");
-  document.querySelectorAll(".pin").forEach(pin => {
-    pin.addEventListener("click", () => {
-      tooltip.textContent = pin.dataset.place + ": фото, авторы, год, сценарии активности и особенности.";
-    });
-  });
-}
-
 function setupForm() {
   const form = document.querySelector("#submitForm");
+
   form.addEventListener("submit", event => {
     event.preventDefault();
+
     const data = new FormData(form);
+
     const body = [
       "Здравствуйте! Хочу добавить проект на сайт.",
       "",
@@ -254,6 +229,7 @@ function setupForm() {
       `Тип: ${data.get("type")}`,
       `Описание: ${data.get("description")}`
     ].join("%0D%0A");
+
     window.location.href = `mailto:hello@example.com?subject=Добавить проект в Детскую среду&body=${body}`;
   });
 }
@@ -264,20 +240,24 @@ renderEducation();
 renderKnowledge();
 setupReveal();
 setupNav();
-setupMap();
 setupForm();
-document.querySelector("#year").textContent = new Date().getFullYear();
 
 filters.addEventListener("click", event => {
   const button = event.target.closest(".chip");
   if (!button) return;
+
   currentCategory = button.dataset.category;
   renderFilters();
   renderIndustry();
 });
+
 searchInput.addEventListener("input", renderIndustry);
+
 document.querySelector("#knowledgeTabs").addEventListener("click", event => {
   const button = event.target.closest(".knowledge-tab");
   if (!button) return;
+
   renderKnowledge(Number(button.dataset.index));
 });
+
+document.querySelector("#year").textContent = new Date().getFullYear();

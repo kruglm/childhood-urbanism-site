@@ -137,7 +137,9 @@ function renderIndustry() {
 
   grid.innerHTML = cards.map(item => `
     <article class="org-card reveal is-visible" style="--accent:${item.accent}">
-      <div class="org-card__photo" aria-hidden="true"></div>
+      <div class="org-card__photo">
+        ${item.photo ? `<img src="${item.photo}" alt="${item.title}">` : ""}
+      </div>
       <div>
         <span class="sticker sticker--pink">${item.category}</span>
         <h3>${item.title}</h3>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Открытая цифровая платформа о детской урбанистике, игровых пространствах и профессиональном сообществе." />
+  <title>Детская среда — индекс детской урбанистики</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="blob blob--green" aria-hidden="true"></div>
+  <div class="blob blob--pink" aria-hidden="true"></div>
+
+  <header class="topbar" id="top">
+    <a class="logo" href="#top" aria-label="На главную">
+      <span class="logo__mark">дс</span>
+      <span class="logo__text">детская среда</span>
+    </a>
+    <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#industry">Индустрия</a>
+      <a href="#education">Образование</a>
+      <a href="#knowledge">База знаний</a>
+      <a href="#research">Исследования</a>
+      <a href="#map">Карта</a>
+      <a class="button button--small" href="#add">Добавить проект</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section section--grid">
+      <div class="hero__kicker sticker sticker--blue reveal">Индекс детской урбанистики России</div>
+      <h1 class="hero__title reveal">
+        <span class="word word--pink">Детская</span>
+        <span class="word word--green">среда</span>
+        <span class="word word--serif">для игры, города и исследований</span>
+      </h1>
+      <p class="hero__lead reveal">
+        Открытая платформа, которая собирает организации, проекты, исследования и практики
+        в сфере детской урбанистики и проектирования игровых пространств.
+      </p>
+      <div class="hero__actions reveal">
+        <a class="button" href="#industry">Смотреть каталог</a>
+        <a class="button button--ghost" href="#knowledge">Открыть базу знаний</a>
+      </div>
+      <div class="hero__doodles" aria-hidden="true">
+        <span class="doodle doodle--star">✦</span>
+        <span class="doodle doodle--cherry">🍒</span>
+        <span class="doodle doodle--cloud">игра?</span>
+        <span class="doodle doodle--circle"></span>
+      </div>
+    </section>
+
+    <div class="marquee" aria-label="Темы платформы">
+      <div class="marquee__track">
+        <span>игровые пространства</span><span>детская инфраструктура</span><span>соучастие</span><span>допустимый риск</span><span>nature play</span>
+        <span>игровые пространства</span><span>детская инфраструктура</span><span>соучастие</span><span>допустимый риск</span><span>nature play</span>
+      </div>
+    </div>
+
+    <section class="section intro" id="about">
+      <div class="section__label reveal">Зачем это нужно</div>
+      <div class="intro__text reveal">
+        <h2>Один ресурс вместо разрозненных ссылок, заметок и презентаций.</h2>
+        <p>
+          Здесь можно найти архитектурные бюро, образовательные инициативы, методические материалы,
+          исследования и кейсы детских пространств. MVP работает как статический сайт, поэтому его легко
+          запустить локально и бесплатно опубликовать через GitHub Pages.
+        </p>
+      </div>
+      <div class="stats reveal" aria-label="Функции сайта">
+        <article><b>01</b><span>реестр организаций и специалистов</span></article>
+        <article><b>02</b><span>база знаний и исследований</span></article>
+        <article><b>03</b><span>навигатор по проектам и практикам</span></article>
+      </div>
+    </section>
+
+    <section class="section audience section--green">
+      <div class="section__label reveal">Для кого</div>
+      <h2 class="reveal">Платформа связывает профессионалов, исследователей и городских пользователей.</h2>
+      <div class="audience__grid reveal">
+        <article class="bubble-card"><span>🏗️</span><h3>Профессионалы</h3><p>архитекторы, урбанисты, девелоперы, муниципалитеты, сотрудники парков</p></article>
+        <article class="bubble-card"><span>🔎</span><h3>Исследователи</h3><p>социологи, психологи, педагоги, студенты и авторы дипломов</p></article>
+        <article class="bubble-card"><span>🎒</span><h3>Образование</h3><p>школы архитектуры, кружки, детские урбанистические проекты</p></article>
+        <article class="bubble-card"><span>🌿</span><h3>Родители</h3><p>люди, которым важно понимать, где и как устроены современные площадки</p></article>
+      </div>
+    </section>
+
+    <section class="section catalog" id="industry">
+      <div class="section__label reveal">Раздел 1</div>
+      <div class="section__head reveal">
+        <h2>Представители индустрии</h2>
+        <p>Каталог организаций, бюро, производителей и специалистов, которые проектируют детскую среду.</p>
+      </div>
+      <div class="toolbar reveal">
+        <label class="search">
+          <span>Поиск</span>
+          <input id="industrySearch" type="search" placeholder="например: бюро, площадки, соучастие" />
+        </label>
+        <div class="chips" id="industryFilters" aria-label="Фильтры каталога"></div>
+      </div>
+      <div class="card-grid" id="industryGrid"></div>
+    </section>
+
+    <section class="section education section--pink" id="education">
+      <div class="section__label reveal">Раздел 2</div>
+      <div class="section__head reveal">
+        <h2>Образование</h2>
+        <p>Инициативы для детей, подростков и студентов: архитектура, урбанистика, воркшопы и профориентация.</p>
+      </div>
+      <div class="rail reveal" id="educationRail"></div>
+    </section>
+
+    <section class="section participation" id="participation">
+      <div class="split">
+        <div class="split__content reveal">
+          <div class="section__label">Раздел 3</div>
+          <h2>Соучаствующее проектирование</h2>
+          <p>
+            Раздел про вовлечение детей и подростков в проектирование городской среды:
+            интервью, прогулки, игровые карты, макеты, наблюдения и совместные сценарии.
+          </p>
+          <a class="button button--ghost" href="#open-city">Ключевой кейс</a>
+        </div>
+        <article class="case-card reveal" id="open-city">
+          <span class="sticker sticker--yellow">кейс</span>
+          <h3>Открытый город</h3>
+          <p>
+            Пример практики, где дети становятся не только пользователями, но и участниками исследования
+            и проектирования среды.
+          </p>
+          <dl>
+            <div><dt>Методики</dt><dd>воркшопы, прогулки, карты эмоций, макетирование</dd></div>
+            <div><dt>Результаты</dt><dd>идеи сценариев, проектные предложения, публичная дискуссия</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section class="section knowledge section--paper" id="knowledge">
+      <div class="section__label reveal">Раздел 4</div>
+      <div class="section__head reveal">
+        <h2>База знаний</h2>
+        <p>Мини-библиотека по детской урбанистике: подходы, термины, методики и рекомендации.</p>
+      </div>
+      <div class="knowledge__layout">
+        <aside class="knowledge__nav reveal" id="knowledgeTabs"></aside>
+        <div class="knowledge__content reveal" id="knowledgeContent"></div>
+      </div>
+    </section>
+
+    <section class="section research" id="research">
+      <div class="section__label reveal">Раздел 5</div>
+      <div class="section__head reveal">
+        <h2>Исследования</h2>
+        <p>Место для курсовых, дипломов, статей и материалов вузов.</p>
+      </div>
+      <div class="research-card reveal">
+        <div>
+          <span class="sticker sticker--blue">первое исследование</span>
+          <h3>Современные игровые пространства Москвы: сценарии активности детей и других возрастных групп</h3>
+          <p>
+            Внутри можно разместить краткое описание, основные выводы, методологию, интервью,
+            фотографии, PDF и ссылки на дополнительные материалы.
+          </p>
+        </div>
+        <ul>
+          <li>методология наблюдений</li>
+          <li>сценарии активности</li>
+          <li>интервью и фотофиксация</li>
+          <li>PDF-архив</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section map" id="map">
+      <div class="section__label reveal">Раздел 6</div>
+      <div class="section__head reveal">
+        <h2>Карта игровых пространств</h2>
+        <p>В MVP это визуальный прототип. В версии 2.0 сюда можно подключить настоящую интерактивную карту.</p>
+      </div>
+      <div class="map__mock reveal" role="img" aria-label="Прототип карты игровых пространств">
+        <button class="pin pin--one" data-place="Природная площадка"><span></span></button>
+        <button class="pin pin--two" data-place="Инклюзивное пространство"><span></span></button>
+        <button class="pin pin--three" data-place="Площадка для подростков"><span></span></button>
+        <button class="pin pin--four" data-place="Авторский игровой объект"><span></span></button>
+        <div class="map__tooltip" id="mapTooltip">Нажми на точку</div>
+      </div>
+    </section>
+
+    <section class="section roadmap section--green">
+      <div class="section__label reveal">MVP</div>
+      <h2 class="reveal">План развития</h2>
+      <div class="timeline reveal">
+        <article><b>1 этап</b><p>каталог организаций, каталог образовательных проектов, база знаний, исследования</p></article>
+        <article><b>2 этап</b><p>кейсы, карта, пользовательский поиск, больше фильтров</p></article>
+        <article><b>3 этап</b><p>форма добавления проектов, модерация, профессиональное сообщество</p></article>
+      </div>
+    </section>
+
+    <section class="section add" id="add">
+      <div class="add__box reveal">
+        <span class="sticker sticker--pink">хочу добавить</span>
+        <h2>Добавить организацию или проект</h2>
+        <p>
+          В статической версии форма открывает письмо. Позже ее можно подключить к Google Forms,
+          Airtable, Notion или собственной базе данных.
+        </p>
+        <form class="submit-form" id="submitForm">
+          <input name="name" placeholder="Название" required>
+          <input name="type" placeholder="Тип: бюро / школа / кейс / исследование" required>
+          <textarea name="description" placeholder="Короткое описание" required></textarea>
+          <button class="button" type="submit">Сформировать письмо</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Детская среда</p>
+    <a href="#top">наверх ↑</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

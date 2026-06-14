@@ -3,64 +3,60 @@ const industry = [
     title: "АФА",
     category: "Архитектурное бюро",
     specialization: ["детские площадки", "общественные пространства"],
-    site: "#",
+    site: "https://afa-group.ru/?ysclid=mqdq604a1256782844",
     accent: "#ffe0eb"
   },
   {
     title: "Чехарда",
     category: "Архитектурное бюро",
     specialization: ["игровые пространства", "детская среда"],
-    site: "#",
+    site: "https://chekharda.com/ru/?ysclid=mqdq71kkx6238992381",
     accent: "#cdeef1"
   },
   {
     title: "Дружба",
     category: "Бюро общественных пространств",
     specialization: ["публичные пространства", "соучастие"],
-    site: "#",
+    site: "https://burodruzhba.com/?ysclid=mqdq8lu2yw73354101",
     accent: "#e2f0c1"
-  },
-  {
-    title: "Мегабудка",
-    category: "Производитель оборудования",
-    specialization: ["оборудование", "игровые объекты"],
-    site: "#",
-    accent: "#ffe08a"
   }
 ];
 
 const education = [
   {
-    title: "Драконопроект",
-    type: "Архитектура для детей",
-    age: "дети и подростки",
-    format: "мастерские, занятия, проектные практики",
-    description: "Образовательная инициатива в области архитектуры, города и пространственного мышления.",
-    site: "#"
+    title: "Pole Urban",
+    type: "VK video channel",
+    source: "Pole Urban",
+    retrieved: "April 26, 2026",
+    site: "https://vkvideo.ru/@poleurban"
   },
   {
-    title: "Детские архитектурные школы",
-    type: "Архитектурные школы",
-    age: "7–17 лет",
-    format: "курсы и студии",
-    description: "Школы, кружки и студии, которые знакомят детей с архитектурой, макетированием и городской средой.",
-    site: "#"
+    title: "Город для меня",
+    type: "Online resource",
+    source: "Город для меня",
+    retrieved: "April 26, 2026",
+    site: "https://городдляменя.рф"
   },
   {
-    title: "Урбанистика для подростков",
-    type: "Урбанистика",
-    age: "12–18 лет",
-    format: "летние школы, воркшопы, прогулки",
-    description: "Программы, где подростки исследуют район, собирают сценарии и предлагают изменения городской среды.",
-    site: "#"
+    title: "Playground Journal",
+    type: "Telegram channel",
+    source: "Playground Journal",
+    retrieved: "April 26, 2026",
+    site: "https://t.me/playgroundjournal"
   },
   {
-    title: "Профориентация",
-    type: "Профориентация",
-    age: "старшие школьники",
-    format: "кружки, интенсивы, программы вузов",
-    description: "Навигация для тех, кто хочет связать учебу с архитектурой, городскими исследованиями и проектированием.",
-    site: "#"
+    title: "Neurourbanism Blog",
+    type: "Telegram channel",
+    source: "Neurourbanism blog",
+    retrieved: "April 26, 2026",
+    site: "https://t.me/neurourbanism_blog"
+  },
+  {
+    title: "Urbanfield",
+    type: "Telegram channel",
+    source: "Urbanfield",
+    retrieved: "April 26, 2026",
+    site: "https://t.me/urbanfield"
   }
 ];
 
@@ -153,14 +149,22 @@ function renderIndustry() {
 function renderEducation() {
   document.querySelector("#educationRail").innerHTML = education.map(item => `
     <article class="edu-card">
-      <span class="edu-card__age">${item.age}</span>
+      <span class="edu-card__meta">${item.type}</span>
       <div>
-        <span class="sticker sticker--blue">${item.type}</span>
+        <span class="sticker sticker--blue">образование</span>
         <h3>${item.title}</h3>
       </div>
-      <p>${item.description}</p>
-      <p><b>Формат:</b> ${item.format}</p>
-      <a class="link" href="${item.site}" target="_blank" rel="noopener">сайт ↗</a>
+      <dl class="edu-card__info">
+        <div>
+          <dt>Источник</dt>
+          <dd>${item.source}</dd>
+        </div>
+        <div>
+          <dt>Дата обращения</dt>
+          <dd>${item.retrieved}</dd>
+        </div>
+      </dl>
+      <a class="link" href="${item.site}" target="_blank" rel="noopener">открыть ресурс ↗</a>
     </article>
   `).join("");
 }

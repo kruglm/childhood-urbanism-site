@@ -122,7 +122,9 @@ let currentCategory = "Все";
 
 function renderFilters() {
   filters.innerHTML = categories.map(category => `
-    <button class="chip ${category === currentCategory ? "is-active" : ""}" data-category="${category}">${category}</button>
+    <button class="chip ${category === currentCategory ? "is-active" : ""}" data-category="${category}">
+      ${category}
+    </button>
   `).join("");
 }
 
@@ -148,7 +150,7 @@ function renderIndustry() {
         <a class="link" href="${item.site}" target="_blank" rel="noopener">сайт ↗</a>
       </div>
     </article>
-  `).join("") || `<p>Ничего не найдено. Попробуй другой запрос.</p>`;
+  `).join("") || `<p>Ничего не найдено. Измените запрос.</p>`;
 }
 
 function renderEducation() {
@@ -179,7 +181,9 @@ function renderKnowledge(activeIndex = 0) {
   const content = document.querySelector("#knowledgeContent");
 
   tabs.innerHTML = knowledge.map((item, index) => `
-    <button class="knowledge-tab ${index === activeIndex ? "is-active" : ""}" data-index="${index}">${item.title}</button>
+    <button class="knowledge-tab ${index === activeIndex ? "is-active" : ""}" data-index="${index}">
+      ${item.title}
+    </button>
   `).join("");
 
   const item = knowledge[activeIndex];
@@ -189,7 +193,12 @@ function renderKnowledge(activeIndex = 0) {
     <h3>${item.title}</h3>
     <p>${item.text}</p>
     <div class="knowledge-list">
-      ${item.items.map(([title, text]) => `<article class="knowledge-item"><b>${title}</b><span>${text}</span></article>`).join("")}
+      ${item.items.map(([title, text]) => `
+        <article class="knowledge-item">
+          <b>${title}</b>
+          <span>${text}</span>
+        </article>
+      `).join("")}
     </div>
   `;
 }
@@ -239,7 +248,7 @@ function setupForm() {
       `Описание: ${data.get("description")}`
     ].join("%0D%0A");
 
-    window.location.href = `mailto:hello@example.com?subject=Добавить проект в Детскую среду&body=${body}`;
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=Добавить проект в Детскую среду&body=${body}`;
   });
 }
 

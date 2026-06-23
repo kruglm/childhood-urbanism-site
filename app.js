@@ -156,21 +156,13 @@ function renderIndustry() {
 function renderEducation() {
   document.querySelector("#educationRail").innerHTML = education.map(item => `
     <article class="edu-card">
-      <span class="edu-card__meta">${item.type}</span>
-      <div>
+      <div class="edu-card__badges">
+        <span class="edu-card__meta">${item.type}</span>
         <span class="sticker sticker--blue">образование</span>
+      </div>
+      <div>
         <h3>${item.title}</h3>
       </div>
-      <dl class="edu-card__info">
-        <div>
-          <dt>Источник</dt>
-          <dd>${item.source}</dd>
-        </div>
-        <div>
-          <dt>Дата обращения</dt>
-          <dd>${item.retrieved}</dd>
-        </div>
-      </dl>
       <a class="link" href="${item.site}" target="_blank" rel="noopener">открыть ресурс ↗</a>
     </article>
   `).join("");
@@ -246,10 +238,132 @@ function setupForm() {
       `Название: ${data.get("name")}`,
       `Тип: ${data.get("type")}`,
       `Описание: ${data.get("description")}`
-    ].join("%0D%0A");
+    ].join("\r\n");
 
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=Добавить проект в Детскую среду&body=${body}`;
+    const subject = encodeURIComponent("Добавить проект в Детскую среду");
+    const encodedBody = encodeURIComponent(body);
+    window.location.href = `mailto:?subject=${subject}&body=${encodedBody}`;
   });
+}
+
+function setupPlayObjects() {
+  const objects = [...document.querySelectorAll(".play-object")];
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!objects.length || reduceMotion) return;
+
+  let pointer = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
+  let hasPointer = false;
+  const motion = objects.map((object, index) => ({
+    object,
+    depth: Number(object.dataset.depth || 0.7),
+    phase: index * 0.88,
+    mass: 0.82 + (index % 4) * 0.18,
+    gravity: 0.045 + (index % 5) * 0.008,
+    drag: 0.88 + (index % 3) * 0.018,
+    spring: 0.022 + (index % 4) * 0.004,
+    scrollVX: 0,
+    scrollVY: 0,
+    spinVelocity: 0,
+    cursorX: 0,
+    cursorY: 0,
+    spin: 0,
+    scrollX: 0,
+    scrollY: 0,
+    scrollSpin: 0,
+    targetCursorX: 0,
+    targetCursorY: 0,
+    targetSpin: 0
+  }));
+  let previousScroll = window.scrollY;
+  let previousTime = performance.now();
+
+  function updateTargets() {
+    motion.forEach(item => {
+      const { object, depth } = item;
+      const rect = object.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      if (!hasPointer || !canHover) {
+        item.targetCursorX = 0;
+        item.targetCursorY = 0;
+        item.targetSpin = 0;
+        return;
+      }
+
+      const deltaX = centerX - pointer.x;
+      const deltaY = centerY - pointer.y;
+      const distance = Math.hypot(deltaX, deltaY);
+      const radius = 270;
+      const force = Math.max(0, 1 - distance / radius);
+      const push = force * 26 * depth;
+      const angle = Math.atan2(deltaY, deltaX);
+
+      item.targetCursorX = Math.cos(angle) * push;
+      item.targetCursorY = Math.sin(angle) * push;
+      item.targetSpin = force * depth * 10;
+    });
+  }
+
+  function renderMotion() {
+    const scroll = window.scrollY;
+    const now = performance.now();
+    const dt = Math.min((now - previousTime) / 16.67, 2);
+    const scrollDelta = Math.max(-80, Math.min(80, scroll - previousScroll));
+    const scrollVelocity = scrollDelta / Math.max(dt, 0.35);
+
+    updateTargets();
+
+    motion.forEach(item => {
+      const swing = Math.sin(item.phase + scroll * 0.0018);
+      const direction = item.phase % 2 > 1 ? -1 : 1;
+      const impulse = scrollVelocity * item.depth / item.mass;
+      const gravity = item.gravity * dt;
+      const springX = -item.scrollX * item.spring * dt;
+      const springY = -item.scrollY * item.spring * dt;
+      const springSpin = -item.scrollSpin * item.spring * 0.46 * dt;
+
+      item.scrollVX += (impulse * 0.035 * direction + springX) * dt;
+      item.scrollVY += (impulse * -0.09 + gravity + springY) * dt;
+      item.spinVelocity += (impulse * 0.09 * direction + springSpin) * dt;
+
+      item.scrollVX *= Math.pow(item.drag, dt);
+      item.scrollVY *= Math.pow(item.drag - 0.018, dt);
+      item.spinVelocity *= Math.pow(item.drag - 0.025, dt);
+
+      item.cursorX += (item.targetCursorX - item.cursorX) * 0.075;
+      item.cursorY += (item.targetCursorY - item.cursorY) * 0.075;
+      item.spin += (item.targetSpin - item.spin) * 0.075;
+      item.scrollX = Math.max(-52, Math.min(52, item.scrollX + item.scrollVX * dt + swing * 0.025));
+      item.scrollY = Math.max(-36, Math.min(36, item.scrollY + item.scrollVY * dt));
+      item.scrollSpin = Math.max(-22, Math.min(22, item.scrollSpin + item.spinVelocity * dt));
+
+      item.object.style.setProperty("--cursor-x", `${item.cursorX.toFixed(2)}px`);
+      item.object.style.setProperty("--cursor-y", `${item.cursorY.toFixed(2)}px`);
+      item.object.style.setProperty("--scroll-x", `${item.scrollX.toFixed(2)}px`);
+      item.object.style.setProperty("--scroll-y", `${item.scrollY.toFixed(2)}px`);
+      item.object.style.setProperty("--spin", `${item.spin.toFixed(2)}deg`);
+      item.object.style.setProperty("--scroll-spin", `${item.scrollSpin.toFixed(2)}deg`);
+      item.object.style.opacity = hasPointer && Math.abs(item.targetSpin) > 0.2 ? "0.72" : "";
+    });
+
+    previousScroll = scroll;
+    previousTime = now;
+    requestAnimationFrame(renderMotion);
+  }
+
+  window.addEventListener("pointermove", event => {
+    hasPointer = true;
+    pointer = { x: event.clientX, y: event.clientY };
+  });
+
+  window.addEventListener("pointerleave", () => {
+    hasPointer = false;
+  });
+
+  requestAnimationFrame(renderMotion);
 }
 
 renderFilters();
@@ -259,6 +373,7 @@ renderKnowledge();
 setupReveal();
 setupNav();
 setupForm();
+setupPlayObjects();
 
 filters.addEventListener("click", event => {
   const button = event.target.closest(".chip");

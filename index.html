@@ -9,8 +9,21 @@
 </head>
 <body>
   <div class="noise" aria-hidden="true"></div>
-  <div class="blob blob--green" aria-hidden="true"></div>
-  <div class="blob blob--pink" aria-hidden="true"></div>
+  <div class="play-sky" aria-hidden="true">
+    <span class="play-object play-object--kite" data-depth="0.95">◇</span>
+    <span class="play-object play-object--sun" data-depth="0.55">✦</span>
+    <span class="play-object play-object--block" data-depth="0.75">A</span>
+    <span class="play-object play-object--ring" data-depth="0.9"></span>
+    <span class="play-object play-object--ticket" data-depth="0.7">?</span>
+    <span class="play-object play-object--dot" data-depth="0.45"></span>
+    <span class="play-object play-object--plus" data-depth="0.85">+</span>
+    <span class="play-object play-object--tile" data-depth="0.65">7</span>
+    <span class="play-object play-object--wave" data-depth="0.8">≈</span>
+    <span class="play-object play-object--ball" data-depth="0.82"></span>
+    <span class="play-object play-object--slide" data-depth="0.72"></span>
+    <span class="play-object play-object--hopscotch" data-depth="0.6">1 2</span>
+    <span class="play-object play-object--bucket" data-depth="0.78">⌒</span>
+  </div>
 
   <header class="topbar" id="top">
     <a class="logo" href="#top" aria-label="На главную">
@@ -32,8 +45,6 @@
 
   <main>
     <section class="hero section section--grid">
-      <div class="hero__kicker sticker sticker--blue reveal">Индекс детской урбанистики России</div>
-
       <h1 class="hero__title reveal">
         <span class="word word--pink">Детская</span>
         <span class="word word--green">среда</span>
@@ -41,14 +52,8 @@
       </h1>
 
       <p class="hero__lead reveal">
-        Открытая платформа, которая объединяет организации, проекты, исследования и практики
-        в сфере детской урбанистики и проектирования игровых пространств.
+        Платформа просвещения в области детской урбанистики, архитектуры и создания игровых пространств.
       </p>
-
-      <div class="hero__actions reveal">
-        <a class="button" href="#industry">Смотреть каталог</a>
-        <a class="button button--ghost" href="#knowledge">Открыть базу знаний</a>
-      </div>
 
       <div class="hero__doodles" aria-hidden="true">
         <span class="doodle doodle--star">✦</span>
@@ -60,16 +65,30 @@
 
     <div class="marquee" aria-label="Темы платформы">
       <div class="marquee__track">
-        <span>игровые пространства</span>
-        <span>детская инфраструктура</span>
-        <span>соучастие</span>
-        <span>допустимый риск</span>
-        <span>nature play</span>
-        <span>игровые пространства</span>
-        <span>детская инфраструктура</span>
-        <span>соучастие</span>
-        <span>допустимый риск</span>
-        <span>nature play</span>
+        <div class="marquee__group">
+          <span>игровые пространства</span>
+          <span>детская инфраструктура</span>
+          <span>соучастие</span>
+          <span>допустимый риск</span>
+          <span>nature play</span>
+          <span>игровые пространства</span>
+          <span>детская инфраструктура</span>
+          <span>соучастие</span>
+          <span>допустимый риск</span>
+          <span>nature play</span>
+        </div>
+        <div class="marquee__group" aria-hidden="true">
+          <span>игровые пространства</span>
+          <span>детская инфраструктура</span>
+          <span>соучастие</span>
+          <span>допустимый риск</span>
+          <span>nature play</span>
+          <span>игровые пространства</span>
+          <span>детская инфраструктура</span>
+          <span>соучастие</span>
+          <span>допустимый риск</span>
+          <span>nature play</span>
+        </div>
       </div>
     </div>
 
@@ -130,8 +149,6 @@
     </section>
 
     <section class="section catalog" id="industry">
-      <div class="section__label reveal">Раздел 1</div>
-
       <div class="section__head reveal">
         <h2>Представители индустрии</h2>
         <p>Каталог организаций, бюро, производителей и специалистов, которые проектируют детскую среду.</p>
@@ -149,8 +166,6 @@
     </section>
 
     <section class="section education section--pink" id="education">
-      <div class="section__label reveal">Раздел 2</div>
-
       <div class="section__head reveal">
         <h2>Образование</h2>
         <p>Инициативы, медиа и образовательные ресурсы о городе, детской среде и урбанистике.</p>
@@ -162,7 +177,6 @@
     <section class="section participation" id="participation">
       <div class="split">
         <div class="split__content reveal">
-          <div class="section__label">Раздел 3</div>
           <h2>Соучаствующее проектирование</h2>
           <p>
             Раздел про вовлечение детей и подростков в проектирование городской среды:
@@ -193,8 +207,6 @@
     </section>
 
     <section class="section knowledge section--paper" id="knowledge">
-      <div class="section__label reveal">Раздел 4</div>
-
       <div class="section__head reveal">
         <h2>База знаний</h2>
         <p>Мини-библиотека по детской урбанистике: подходы, термины, методики и рекомендации.</p>
@@ -207,8 +219,6 @@
     </section>
 
     <section class="section research" id="research">
-      <div class="section__label reveal">Раздел 5</div>
-
       <div class="section__head reveal">
         <h2>Исследования</h2>
         <p>Раздел для курсовых, дипломов, статей, полевых материалов и исследований вузов.</p>
@@ -231,27 +241,6 @@
           <li>интервью и фотофиксация</li>
           <li>PDF-архив</li>
         </ul>
-      </div>
-    </section>
-
-    <section class="section roadmap section--green">
-      <div class="section__label reveal">Этапы развития</div>
-
-      <h2 class="reveal">План развития</h2>
-
-      <div class="timeline reveal">
-        <article>
-          <b>1 этап</b>
-          <p>каталог организаций, каталог образовательных проектов, база знаний, исследования</p>
-        </article>
-        <article>
-          <b>2 этап</b>
-          <p>кейсы, пользовательский поиск, расширенные фильтры и тематические подборки</p>
-        </article>
-        <article>
-          <b>3 этап</b>
-          <p>форма добавления проектов, модерация, профессиональное сообщество</p>
-        </article>
       </div>
     </section>
 

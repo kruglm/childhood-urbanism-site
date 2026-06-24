@@ -1026,6 +1026,15 @@ textarea:focus {
   line-height: 1.08;
 }
 
+.org-card__project-sticker {
+  max-width: 100%;
+  align-items: flex-start;
+  white-space: normal;
+  line-height: 1.25;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .org-card__bottom {
   margin-top: auto;
   display: flex;
@@ -1223,48 +1232,6 @@ dd {
   margin-bottom: 5px;
 }
 
-.research-card {
-  display: grid;
-  grid-template-columns: 1fr 330px;
-  gap: 26px;
-  padding: clamp(22px, 4vw, 42px);
-  border: 1px solid var(--line);
-  border-radius: 34px;
-  background: var(--paper);
-  box-shadow: var(--shadow);
-}
-
-.research-card h3 {
-  max-width: 780px;
-  font-size: clamp(30px, 5vw, 58px);
-  letter-spacing: -.05em;
-}
-
-.research-card__button {
-  margin-top: 18px;
-}
-
-.research-card ul {
-  list-style: none;
-  display: grid;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-}
-
-.research-card li {
-  padding: 14px 16px;
-  border-radius: 18px;
-  background: rgba(255,255,255,.72);
-  font-weight: 800;
-}
-
-.research-card li::before {
-  content: "✦";
-  color: var(--orange);
-  margin-right: 8px;
-}
-
 .add__box {
   max-width: 860px;
   margin: 0 auto;
@@ -1390,8 +1357,7 @@ dd {
   .section__head,
   .intro,
   .split,
-  .knowledge__layout,
-  .research-card {
+  .knowledge__layout {
     grid-template-columns: 1fr;
   }
 
@@ -1549,10 +1515,6 @@ dd {
   .chip,
   .knowledge-tab {
     overflow-wrap: anywhere;
-  }
-
-  .research-card ul {
-    margin-top: 4px;
   }
 
   .footer {

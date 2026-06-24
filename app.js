@@ -5,7 +5,8 @@ const industry = [
     specialization: ["детские площадки", "общественные пространства"],
     site: "https://afa-group.ru/?ysclid=mqdq604a1256782844",
     photo : "assets/img/afa.jpg",
-    accent: "#ffe0eb"
+    accent: "#ffe0eb",
+    projects: "Салют, ферма на Белой Даче"
   },
   {
     title: "Чехарда",
@@ -13,7 +14,8 @@ const industry = [
     specialization: ["игровые пространства", "детская среда"],
     site: "https://chekharda.com/ru/?ysclid=mqdq71kkx6238992381",
     photo : "assets/img/cheharda.jpg",
-    accent: "#cdeef1"
+    accent: "#cdeef1",
+    projects: "Шагающие деревья, Цветущий сад в Вологде"
   },
   {
     title: "Дружба",
@@ -21,31 +23,27 @@ const industry = [
     specialization: ["публичные пространства", "соучастие"],
     site: "https://burodruzhba.com/?ysclid=mqdq8lu2yw73354101",
     photo : "assets/img/drujba.jpg",
-    accent: "#e2f0c1"
+    accent: "#e2f0c1",
+    projects: "дворы Павловской гимназии, ЖК «Sydney City»"
+  },
+  {
+    title: "Мегабудка",
+    category: "Архитектурное бюро",
+    specialization: ["игровые пространства", "общественные пространства"],
+    site: "",
+    photo : "assets/img/megabudka.jpg",
+    accent: "#ffe8a3",
+    projects: "концепция площадки в квартале JAZZ в Москве"
   }
 ];
 
 const education = [
-  {
-    title: "Therapeutic Playground",
-    type: "научная статья",
-    source: "Sustainability",
-    retrieved: "2024",
-    site: "https://doi.org/10.3390/su16156414"
-  },
   {
     title: "Pole Urban",
     type: "видео-канал",
     source: "Pole Urban",
     retrieved: "April 26, 2026",
     site: "https://vkvideo.ru/@poleurban"
-  },
-  {
-    title: "Playground Planning and Management",
-    type: "научная статья",
-    source: "Urban Forestry & Urban Greening",
-    retrieved: "2010",
-    site: "https://doi.org/10.1016/j.ufug.2009.10.003"
   },
   {
     title: "Город для меня",
@@ -55,13 +53,6 @@ const education = [
     site: "https://городдляменя.рф"
   },
   {
-    title: "Children's Usage of Inclusive Playgrounds",
-    type: "научная статья",
-    source: "IJERPH",
-    retrieved: "2022",
-    site: "https://doi.org/10.3390/ijerph192013648"
-  },
-  {
     title: "Playground Journal",
     type: "телеграм-канал",
     source: "Playground Journal",
@@ -69,25 +60,11 @@ const education = [
     site: "https://t.me/playgroundjournal"
   },
   {
-    title: "Quality and Risky Play Opportunities",
-    type: "научная статья",
-    source: "Journal of Outdoor and Environmental Education",
-    retrieved: "2023",
-    site: "https://doi.org/10.1007/s42322-023-00137-1"
-  },
-  {
     title: "Neurourbanism Blog",
     type: "телеграм-канал",
     source: "Neurourbanism blog",
     retrieved: "April 26, 2026",
     site: "https://t.me/neurourbanism_blog"
-  },
-  {
-    title: "Planning Playgrounds to Facilitate Pretend Play",
-    type: "научная статья",
-    source: "Planning Practice & Research",
-    retrieved: "2016",
-    site: "https://doi.org/10.1080/02697459.2015.1081336"
   },
   {
     title: "Urbanfield",
@@ -150,10 +127,6 @@ const knowledge = [
 ];
 
 const grid = document.querySelector("#industryGrid");
-const filters = document.querySelector("#industryFilters");
-const searchInput = document.querySelector("#industrySearch");
-const categories = ["Все", ...new Set(industry.map(item => item.category))];
-let currentCategory = "Все";
 
 function applyTypography(root = document.body) {
   const smallWords = "а|в|во|и|или|к|ко|на|не|но|о|об|обо|от|по|с|со|у|за|из|до|для|над|под|при";
@@ -177,37 +150,23 @@ function applyTypography(root = document.body) {
   });
 }
 
-function renderFilters() {
-  filters.innerHTML = categories.map(category => `
-    <button class="chip ${category === currentCategory ? "is-active" : ""}" data-category="${category}">
-      ${category}
-    </button>
-  `).join("");
-}
-
 function renderIndustry() {
-  const query = searchInput.value.trim().toLowerCase();
-
-  const cards = industry.filter(item => {
-    const matchesCategory = currentCategory === "Все" || item.category === currentCategory;
-    const haystack = [item.title, item.category, item.specialization.join(" ")].join(" ").toLowerCase();
-    return matchesCategory && haystack.includes(query);
-  });
-
-  grid.innerHTML = cards.map(item => `
+  grid.innerHTML = industry.map(item => `
     <article class="org-card org-card--enter reveal is-visible" style="--accent:${item.accent}">
       <div class="org-card__photo">
         ${item.photo ? `<img src="${item.photo}" alt="${item.title}">` : ""}
       </div>
       <div>
-        <span class="sticker sticker--pink">${item.category}</span>
+        <span class="sticker sticker--pink org-card__project-sticker">${item.projects}</span>
         <h3>${item.title}</h3>
       </div>
-      <div class="org-card__bottom">
-        <a class="link" href="${item.site}" target="_blank" rel="noopener">сайт ↗</a>
-      </div>
+      ${item.site ? `
+        <div class="org-card__bottom">
+          <a class="link" href="${item.site}" target="_blank" rel="noopener">сайт ↗</a>
+        </div>
+      ` : ""}
     </article>
-  `).join("") || `<p>Ничего не найдено. Измените запрос.</p>`;
+  `).join("");
 }
 
 function renderEducation() {
@@ -444,7 +403,6 @@ function setupPlayObjects() {
   requestAnimationFrame(renderMotion);
 }
 
-renderFilters();
 renderIndustry();
 renderEducation();
 renderKnowledge();
@@ -452,22 +410,6 @@ applyTypography();
 setupReveal();
 setupNav();
 setupPlayObjects();
-
-filters.addEventListener("click", event => {
-  const button = event.target.closest(".chip");
-  if (!button) return;
-
-  currentCategory = button.dataset.category;
-  renderFilters();
-  renderIndustry();
-  applyTypography(grid);
-  applyTypography(filters);
-});
-
-searchInput.addEventListener("input", () => {
-  renderIndustry();
-  applyTypography(grid);
-});
 
 document.querySelector("#knowledgeTabs").addEventListener("click", event => {
   const button = event.target.closest(".knowledge-tab");

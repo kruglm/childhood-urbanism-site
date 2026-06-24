@@ -24,7 +24,7 @@ const industry = [
     site: "https://burodruzhba.com/?ysclid=mqdq8lu2yw73354101",
     photo : "assets/img/drujba.jpg",
     accent: "#e2f0c1",
-    projects: "дворы Павловской гимназии, ЖК «Sydney City»"
+    projects: "Дворы Павловской гимназии, ЖК «Sydney City»"
   },
   {
     title: "Мегабудка",
@@ -33,7 +33,7 @@ const industry = [
     site: "",
     photo : "assets/img/megabudka.jpg",
     accent: "#ffe8a3",
-    projects: "концепция площадки в квартале JAZZ в Москве"
+    projects: "Концепция площадки в квартале JAZZ в Москве"
   }
 ];
 

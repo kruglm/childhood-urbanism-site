@@ -4,7 +4,7 @@ const industry = [
     category: "Архитектурное бюро",
     specialization: ["детские площадки", "общественные пространства"],
     site: "https://afa-group.ru/?ysclid=mqdq604a1256782844",
-    photo : "assets/img/99941ac78d0278d_1920x0.jpg",
+    photo : "assets/img/afa.jpg",
     accent: "#ffe0eb"
   },
   {
@@ -12,7 +12,7 @@ const industry = [
     category: "Архитектурное бюро",
     specialization: ["игровые пространства", "детская среда"],
     site: "https://chekharda.com/ru/?ysclid=mqdq71kkx6238992381",
-    photo : "assets/img/5_Druzhba_600.jpg",
+    photo : "assets/img/cheharda.jpg",
     accent: "#cdeef1"
   },
   {
@@ -20,43 +20,78 @@ const industry = [
     category: "Бюро общественных пространств",
     specialization: ["публичные пространства", "соучастие"],
     site: "https://burodruzhba.com/?ysclid=mqdq8lu2yw73354101",
-    photo : "assets/img/DSC09079-result.jpg",
+    photo : "assets/img/drujba.jpg",
     accent: "#e2f0c1"
   }
 ];
 
 const education = [
   {
+    title: "Therapeutic Playground",
+    type: "научная статья",
+    source: "Sustainability",
+    retrieved: "2024",
+    site: "https://doi.org/10.3390/su16156414"
+  },
+  {
     title: "Pole Urban",
-    type: "VK video channel",
+    type: "видео-канал",
     source: "Pole Urban",
     retrieved: "April 26, 2026",
     site: "https://vkvideo.ru/@poleurban"
   },
   {
+    title: "Playground Planning and Management",
+    type: "научная статья",
+    source: "Urban Forestry & Urban Greening",
+    retrieved: "2010",
+    site: "https://doi.org/10.1016/j.ufug.2009.10.003"
+  },
+  {
     title: "Город для меня",
-    type: "Online resource",
+    type: "онлайн-ресурс",
     source: "Город для меня",
     retrieved: "April 26, 2026",
     site: "https://городдляменя.рф"
   },
   {
+    title: "Children's Usage of Inclusive Playgrounds",
+    type: "научная статья",
+    source: "IJERPH",
+    retrieved: "2022",
+    site: "https://doi.org/10.3390/ijerph192013648"
+  },
+  {
     title: "Playground Journal",
-    type: "Telegram channel",
+    type: "телеграм-канал",
     source: "Playground Journal",
     retrieved: "April 26, 2026",
     site: "https://t.me/playgroundjournal"
   },
   {
+    title: "Quality and Risky Play Opportunities",
+    type: "научная статья",
+    source: "Journal of Outdoor and Environmental Education",
+    retrieved: "2023",
+    site: "https://doi.org/10.1007/s42322-023-00137-1"
+  },
+  {
     title: "Neurourbanism Blog",
-    type: "Telegram channel",
+    type: "телеграм-канал",
     source: "Neurourbanism blog",
     retrieved: "April 26, 2026",
     site: "https://t.me/neurourbanism_blog"
   },
   {
+    title: "Planning Playgrounds to Facilitate Pretend Play",
+    type: "научная статья",
+    source: "Planning Practice & Research",
+    retrieved: "2016",
+    site: "https://doi.org/10.1080/02697459.2015.1081336"
+  },
+  {
     title: "Urbanfield",
-    type: "Telegram channel",
+    type: "телеграм-канал",
     source: "Urbanfield",
     retrieved: "April 26, 2026",
     site: "https://t.me/urbanfield"
@@ -65,51 +100,51 @@ const education = [
 
 const knowledge = [
   {
-    title: "Игра и развитие",
-    text: "Почему игра важна для развития ребенка и как среда может поддерживать воображение, движение, коммуникацию и самостоятельность.",
-    items: [
-      ["Роль игры", "игра как способ познания пространства и социальных правил"],
-      ["Развитие через среду", "материалы, масштабы, маршруты, точки выбора"]
-    ]
-  },
-  {
     title: "Сценарии активности",
-    text: "Activity scenarios помогают описывать не только объект площадки, но и то, что на ней реально делают разные группы пользователей.",
+    text: "Игровое пространство можно рассматривать не как набор оборудования, а как систему сценариев: маршрутов, ролей, способов пребывания и взаимодействия детей, родителей, подростков и других горожан.",
     items: [
-      ["Что описывать", "движение, наблюдение, общение, риск, спокойные занятия"],
-      ["Как проектировать", "собрать сценарии, проверить конфликты, оставить свободу использования"]
+      ["Проектный сценарий", "то, что задают архитектура, зонирование и оборудование: движение, риск, сюжет, спокойные зоны, точки наблюдения"],
+      ["Пользовательская практика", "то, как посетители реально присваивают пространство, усиливают одни функции и придумывают новые способы игры"]
     ]
   },
   {
-    title: "Допустимый риск",
-    text: "Risk-benefit подход не убирает вызов полностью, а помогает отличать полезный риск от опасности, которую пользователь не может оценить.",
+    title: "Аффордансы среды",
+    text: "Аффордансы помогают описывать, какие возможности для действия предлагает среда. Горка, канат, песок, скамейка или дерево важны не сами по себе, а через то, что они позволяют сделать разным пользователям.",
     items: [
-      ["Challenge playgrounds", "пространства, где есть выбор сложности"],
-      ["Баланс", "безопасность плюс возможность пробовать, ошибаться и учиться"]
+      ["Для ребенка", "залезть, спрятаться, построить, балансировать, выбрать маршрут, придумать сюжет"],
+      ["Для взрослого", "наблюдать, сопровождать, помогать, включаться в игру или оставаться рядом"]
     ]
   },
   {
-    title: "Природные пространства",
-    text: "Nature play и adventure playgrounds используют рельеф, растения, воду, песок, ветки и изменяемую среду как основу игры.",
+    title: "Автономия и вовлеченность",
+    text: "Качественная площадка поддерживает автономию, компетентность и связанность. Чем больше выбора, посильного вызова и контакта, тем выше вовлеченность пользователей.",
     items: [
-      ["Nature play", "контакт с природными материалами и сезонностью"],
-      ["Adventure playgrounds", "больше свободы, самостоятельности и конструирования"]
+      ["Автономия", "ребенок выбирает траекторию, темп, роль и степень участия"],
+      ["Компетентность", "конструкции дают опыт преодоления: залезть, пройти маршрут, удержаться, договориться"]
     ]
   },
   {
-    title: "Инклюзивность",
-    text: "Инклюзивная игровая среда учитывает разные тела, сенсорные особенности, нейроразнообразие и разные способы участия в игре.",
+    title: "Материалы и риск",
+    text: "Наиболее насыщенные сценарии возникают там, где есть природные и сенсорные материалы, высотные элементы, канаты, рельеф и возможность допустимого риска.",
     items: [
-      ["Универсальный дизайн", "доступность без стигматизации и отдельного маршрута"],
-      ["Нейроразнообразие", "тихие зоны, предсказуемость, сенсорная вариативность"]
+      ["Песок, вода, дерево", "запускают строительство, пересыпание, телесный опыт, совместные действия и сюжетную игру"],
+      ["Высота и канаты", "создают вызов, требуют концентрации и часто вовлекают взрослого как наблюдателя или помощника"]
     ]
   },
   {
-    title: "Терапевтические площадки",
-    text: "Therapeutic playgrounds рассматривают игровую среду как поддержку реабилитации, восстановления и эмоциональной регуляции.",
+    title: "Типовое и авторское",
+    text: "Сравнение авторских и типовых площадок показывает, что близость к дому важна, но сама по себе не создает сценарной насыщенности. Типовая площадка часто остается фоном, если рядом есть более выразительная среда.",
     items: [
-      ["Терапевтические сценарии", "сенсорные, двигательные, социальные и спокойные практики"],
-      ["Методические рекомендации", "как связать дизайн, педагогов, врачей и семьи"]
+      ["Авторские площадки", "чаще соединяют зоны, маршруты, сюжет, риск, материалы и разные возрастные группы"],
+      ["Типовые площадки", "дают базовую функцию и безопасность, но реже провоцируют воображение, исследование и длительное пребывание"]
+    ]
+  },
+  {
+    title: "Дети как соавторы",
+    text: "Развитие детских пространств нельзя сводить только к работе архитекторов или городских властей. Важны междисциплинарность, наблюдение за практиками и соучаствующее проектирование.",
+    items: [
+      ["Соучастие", "прогулки, карты, макеты и обсуждение сценариев помогают проектировать не абстрактно, а через опыт детей"],
+      ["Городская функция", "площадка становится местом общения, эмоциональной разгрузки и связи ребенка, взрослого и города"]
     ]
   }
 ];
@@ -119,6 +154,28 @@ const filters = document.querySelector("#industryFilters");
 const searchInput = document.querySelector("#industrySearch");
 const categories = ["Все", ...new Set(industry.map(item => item.category))];
 let currentCategory = "Все";
+
+function applyTypography(root = document.body) {
+  const smallWords = "а|в|во|и|или|к|ко|на|не|но|о|об|обо|от|по|с|со|у|за|из|до|для|над|под|при";
+  const pattern = new RegExp(`(^|[\\s(«"„])(${smallWords})\\s+`, "giu");
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node) {
+      const parent = node.parentElement;
+      if (!parent || ["SCRIPT", "STYLE", "NOSCRIPT"].includes(parent.tagName)) {
+        return NodeFilter.FILTER_REJECT;
+      }
+
+      return node.nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  nodes.forEach(node => {
+    node.nodeValue = node.nodeValue.replace(pattern, `$1$2\u00A0`);
+  });
+}
 
 function renderFilters() {
   filters.innerHTML = categories.map(category => `
@@ -138,7 +195,7 @@ function renderIndustry() {
   });
 
   grid.innerHTML = cards.map(item => `
-    <article class="org-card reveal is-visible" style="--accent:${item.accent}">
+    <article class="org-card org-card--enter reveal is-visible" style="--accent:${item.accent}">
       <div class="org-card__photo">
         ${item.photo ? `<img src="${item.photo}" alt="${item.title}">` : ""}
       </div>
@@ -158,7 +215,6 @@ function renderEducation() {
     <article class="edu-card">
       <div class="edu-card__badges">
         <span class="edu-card__meta">${item.type}</span>
-        <span class="sticker sticker--blue">образование</span>
       </div>
       <div>
         <h3>${item.title}</h3>
@@ -208,6 +264,36 @@ function setupReveal() {
 function setupNav() {
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".nav");
+  const topbar = document.querySelector(".topbar");
+  const logo = document.querySelector(".logo[href='#top']");
+  const scrollTopLink = document.querySelector("[data-scroll-top]");
+
+  function getScrollOffset() {
+    return (topbar?.getBoundingClientRect().height || 0) + 28;
+  }
+
+  function getSectionAnchor(target) {
+    if (!target.classList.contains("section")) return target;
+
+    return target.querySelector(".section__label, .section__head, .split") || target;
+  }
+
+  function scrollToHash(hash) {
+    if (hash === "#top") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+      return;
+    }
+
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const anchor = getSectionAnchor(target);
+    const top = Math.max(0, window.scrollY + anchor.getBoundingClientRect().top - getScrollOffset());
+
+    window.scrollTo({ top, behavior: "smooth" });
+    history.replaceState(null, "", hash);
+  }
 
   toggle.addEventListener("click", () => {
     const isOpen = nav.classList.toggle("is-open");
@@ -216,33 +302,24 @@ function setupNav() {
   });
 
   nav.addEventListener("click", event => {
-    if (event.target.tagName === "A") {
-      nav.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.textContent = "☰";
-    }
-  });
-}
+    const link = event.target.closest("a[href^='#']");
+    if (!link) return;
 
-function setupForm() {
-  const form = document.querySelector("#submitForm");
-
-  form.addEventListener("submit", event => {
     event.preventDefault();
+    nav.classList.remove("is-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.textContent = "☰";
+    scrollToHash(link.hash);
+  });
 
-    const data = new FormData(form);
+  scrollTopLink?.addEventListener("click", event => {
+    event.preventDefault();
+    scrollToHash("#top");
+  });
 
-    const body = [
-      "Здравствуйте! Хочу добавить проект на сайт.",
-      "",
-      `Название: ${data.get("name")}`,
-      `Тип: ${data.get("type")}`,
-      `Описание: ${data.get("description")}`
-    ].join("\r\n");
-
-    const subject = encodeURIComponent("Добавить проект в Детскую среду");
-    const encodedBody = encodeURIComponent(body);
-    window.location.href = `mailto:?subject=${subject}&body=${encodedBody}`;
+  logo?.addEventListener("click", event => {
+    event.preventDefault();
+    scrollToHash("#top");
   });
 }
 
@@ -260,9 +337,9 @@ function setupPlayObjects() {
     depth: Number(object.dataset.depth || 0.7),
     phase: index * 0.88,
     mass: 0.82 + (index % 4) * 0.18,
-    gravity: 0.045 + (index % 5) * 0.008,
-    drag: 0.88 + (index % 3) * 0.018,
-    spring: 0.022 + (index % 4) * 0.004,
+    gravity: 0,
+    drag: 0.9 + (index % 3) * 0.018,
+    spring: 0.03 + (index % 4) * 0.004,
     scrollVX: 0,
     scrollVY: 0,
     spinVelocity: 0,
@@ -317,9 +394,10 @@ function setupPlayObjects() {
     updateTargets();
 
     motion.forEach(item => {
-      const swing = Math.sin(item.phase + scroll * 0.0018);
+      const hasScrollImpulse = Math.abs(scrollDelta) > 0.5;
+      const swing = hasScrollImpulse ? Math.sin(item.phase + scroll * 0.0018) : 0;
       const direction = item.phase % 2 > 1 ? -1 : 1;
-      const impulse = scrollVelocity * item.depth / item.mass;
+      const impulse = hasScrollImpulse ? scrollVelocity * item.depth / item.mass : 0;
       const gravity = item.gravity * dt;
       const springX = -item.scrollX * item.spring * dt;
       const springY = -item.scrollY * item.spring * dt;
@@ -336,7 +414,7 @@ function setupPlayObjects() {
       item.cursorX += (item.targetCursorX - item.cursorX) * 0.075;
       item.cursorY += (item.targetCursorY - item.cursorY) * 0.075;
       item.spin += (item.targetSpin - item.spin) * 0.075;
-      item.scrollX = Math.max(-52, Math.min(52, item.scrollX + item.scrollVX * dt + swing * 0.025));
+      item.scrollX = Math.max(-52, Math.min(52, item.scrollX + item.scrollVX * dt + swing * 0.012));
       item.scrollY = Math.max(-36, Math.min(36, item.scrollY + item.scrollVY * dt));
       item.scrollSpin = Math.max(-22, Math.min(22, item.scrollSpin + item.spinVelocity * dt));
 
@@ -370,9 +448,9 @@ renderFilters();
 renderIndustry();
 renderEducation();
 renderKnowledge();
+applyTypography();
 setupReveal();
 setupNav();
-setupForm();
 setupPlayObjects();
 
 filters.addEventListener("click", event => {
@@ -382,15 +460,21 @@ filters.addEventListener("click", event => {
   currentCategory = button.dataset.category;
   renderFilters();
   renderIndustry();
+  applyTypography(grid);
+  applyTypography(filters);
 });
 
-searchInput.addEventListener("input", renderIndustry);
+searchInput.addEventListener("input", () => {
+  renderIndustry();
+  applyTypography(grid);
+});
 
 document.querySelector("#knowledgeTabs").addEventListener("click", event => {
   const button = event.target.closest(".knowledge-tab");
   if (!button) return;
 
   renderKnowledge(Number(button.dataset.index));
+  applyTypography(document.querySelector("#knowledge"));
 });
 
 document.querySelector("#year").textContent = new Date().getFullYear();

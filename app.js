@@ -30,7 +30,7 @@ const industry = [
     title: "Мегабудка",
     category: "Архитектурное бюро",
     specialization: ["игровые пространства", "общественные пространства"],
-    site: "",
+    site: "https://megabudka.ru/",
     photo : "assets/img/megabudka.jpg",
     accent: "#ffe8a3",
     projects: "Концепция площадки в квартале JAZZ в Москве"

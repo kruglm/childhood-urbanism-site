@@ -6,7 +6,7 @@ const industry = [
     site: "https://afa-group.ru/?ysclid=mqdq604a1256782844",
     photo : "assets/img/afa.jpg",
     accent: "#ffe0eb",
-    projects: "Салют, ферма на Белой Даче"
+    projects: "Салют, Ферма на Белой Даче"
   },
   {
     title: "Чехарда",

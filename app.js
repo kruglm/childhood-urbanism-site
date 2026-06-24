@@ -40,14 +40,14 @@ const industry = [
 const education = [
   {
     title: "Pole Urban",
-    type: "видео-канал",
+    type: "образовательный проект",
     source: "Pole Urban",
     retrieved: "April 26, 2026",
     site: "https://vkvideo.ru/@poleurban"
   },
   {
     title: "Город для меня",
-    type: "онлайн-ресурс",
+    type: "ассоциация соуч. проектирования",
     source: "Город для меня",
     retrieved: "April 26, 2026",
     site: "https://городдляменя.рф"
